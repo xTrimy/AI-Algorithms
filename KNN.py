@@ -59,7 +59,6 @@ def knn(training_set, test_set, k):
     dist = 0
     limit = len(training_set[0]) - 1
 
-    # generate response classes from training data
     classes = get_classes(training_set)
 
     try:
@@ -72,17 +71,13 @@ def knn(training_set, test_set, k):
 
             distances.sort(key=itemgetter(len(distances[0])-1))
 
-            # find k nearest neighbors
             neighbors = find_neighbors(distances, k)
 
-            # get the class with maximum votes
             index, value = find_response(neighbors, classes)
 
-            # Display prediction
             print('The predicted class for sample ' + str(test_instance) + ' is : ' + classes[index])
             print('Number of votes : ' + str(value) + ' out of ' + str(k))
 
-            # empty the distance list
             distances.clear()
 
     except Exception as e:
@@ -91,10 +86,9 @@ def knn(training_set, test_set, k):
 
 def main():
     try:
-        # get value of k
+
         k = int(input('Enter the value of k : '))
 
-        # load the training and test data set
         training_file = input('Enter name of training data file : ')
         test_file = input('Enter name of test data file : ')
         training_set = convert_to_float(load_data_set(training_file), 'training')

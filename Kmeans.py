@@ -1,6 +1,6 @@
 
 import matplotlib.pyplot as plt
-import seaborn as sns; sns.set()  # for plot styling
+import seaborn as sns; sns.set()
 import numpy as np
 from sklearn.datasets.samples_generator import make_blobs
 from sklearn.datasets import make_moons
